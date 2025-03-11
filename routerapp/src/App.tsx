@@ -1,33 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+// 남는 Component 들을 import
+import Home from './Components/Home'
+import Contact from './Components/Contact'
+import PageNotFound from './Components/PageNotFound'
+import ContactSeoul from './Components/ContactSeoul'
+import ContactLondon from './Components/ContactLondon'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <nav>
+          <Link to="/">Home</Link> {' | '}
+          <Link to="/contact">Contact</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/contact" element={<Contact/>} />
+          <Route path="seoul" element={<ContactSeoul/>}/>
+          <Route path="london" element={<ContactLondon/>}/>
+          <Route path="*" element={<PageNotFound/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
