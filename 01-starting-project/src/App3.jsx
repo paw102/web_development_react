@@ -1,20 +1,12 @@
-import { useState } from "react";
 import Header2 from "./components/Header/Header2";
 import { CORE_CONCEPTS } from './data';
 import CoreConcepts from "./Components/CoreConcepts/CoreConcepts";
 import TabButton from "./Components/TabButton";
 
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState('');
-
-  function hanldeSelect(selectedTopic) {
-    //  selectedButton = 'components', 'jsx', 'props', 'state'
-    console.log(selectedTopic);
-  }
-
   return (
     <div>
-    <Header2 />
+      <Header2 />
       <main>
       <section id="core-concepts">
         <h2>핵심 개념들 of React</h2>
@@ -28,10 +20,10 @@ function App() {
         <section id="examples">
           <h2>예시들</h2>
           <menu>
-            <TabButton onSelect={hanldeSelect('ㅎㅇ')}>Components</TabButton>
-            <TabButton>JSX</TabButton>
-            <TabButton>Props</TabButton>
-            <TabButton>State</TabButton>
+            {/* <TabButton label="components" />
+            <TabButton label="JSX" />
+            <TabButton label="Props" />
+            <TabButton label="State" /> */}
           </menu>
           동적인 버튼 클릭의 결과물 
         </section>
