@@ -6,7 +6,7 @@ import TabButton from "./Components/TabButton";
 import { EXAMPLES } from "./data_updated";
 
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState('');
+  const [ selectedTopic, setSelectedTopic ] = useState();
 
   function hanldeSelect(selectedTopic) {
     console.log(selectedTopic);
@@ -34,16 +34,17 @@ function App() {
             <TabButton onSelect={() => hanldeSelect('props')}>Props</TabButton>
             <TabButton onSelect={() => hanldeSelect('state')}>State</TabButton>
           </menu>
-          {selectedTopic === '' ? <h3>버튼을 클릭하세요</h3> :          
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic]['title']}</h3>
-            <p>{EXAMPLES[selectedTopic]['description']}</p>
-            <pre>
-              <code>
-                {EXAMPLES[selectedTopic]['code']}
-              </code>
+          {selectedTopic === undefined ? <h3>버튼을 클릭하세요</h3> : null}
+          {selectedTopic !== undefined ? 
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic]['title']}</h3>
+              <p>{EXAMPLES[selectedTopic]['description']}</p>
+              <pre>
+                <code>
+                  {EXAMPLES[selectedTopic]['code']}
+                </code>
               </pre>
-          </div> }
+          </div> : null}
         </section>
       </main>
     </div>
