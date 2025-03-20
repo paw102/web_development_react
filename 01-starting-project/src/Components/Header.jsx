@@ -1,5 +1,5 @@
 export default function Header() {
-  return (
+  return(
     <header>
     <img src="src/assets/react-core-concepts.png" alt="Stylized atom" />
     <h1>React Essentials</h1>
@@ -8,5 +8,5 @@ export default function Header() {
       going to build!
     </p>
   </header>
-);
+  );
 }
